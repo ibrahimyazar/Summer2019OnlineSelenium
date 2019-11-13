@@ -25,6 +25,8 @@ public class EllaIcinNinni {
             System.out.println("Test faild");
             System.out.println("Expected URL: " + expectedurl);
             System.out.println("Actual URL: " + actualurl);
+            System.out.println(actualurl);
+    
         }
 
         WebElement tesla = driver.findElement(By.id("video-title"));
