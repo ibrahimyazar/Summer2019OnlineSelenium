@@ -2,6 +2,8 @@ package test.day1;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.BrowserFactory;
+import utils.BrowserUtils;
 
 public class MyFirstSeleniumScript {
 
@@ -16,6 +18,7 @@ public class MyFirstSeleniumScript {
 
         String actualResult = driver.getTitle();
         String expectedResult = "Google";
+        BrowserUtils.wait(3);
         if (actualResult.equals(expectedResult)){
             System.out.println("Test past");
 
