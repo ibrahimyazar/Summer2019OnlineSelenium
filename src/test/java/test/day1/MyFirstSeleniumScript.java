@@ -28,7 +28,10 @@ public class MyFirstSeleniumScript {
 
             System.out.println("Fail");
         }
+
+        BrowserUtils.wait(2);
         driver.close();
+
 
     }
 }
