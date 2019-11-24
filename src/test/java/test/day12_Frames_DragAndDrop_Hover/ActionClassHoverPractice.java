@@ -1,6 +1,7 @@
 package test.day12_Frames_DragAndDrop_Hover;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -77,12 +78,21 @@ public class ActionClassHoverPractice {
         BrowserUtils.wait(3);
     }
 
-    @Test(description = "Click With JS executer")
-    public void Test3(){
+    //    var btn1 = document.getElementsByTagName('a')[1];
+//    btn1.click()
+    @Test(description = "Click with JS executor")
+    public void test3(){
         driver.get("http://practice.cybertekschool.com/dynamic_loading");
-
-
-
+        //Example 1 is a beginning of the phrase <a href='http:'>Example 1.....</a>
+        WebElement link1 = driver.findElement(By.partialLinkText("Example 1"));
+        BrowserUtils.wait(2);//wait for demo
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //arguments[0] = link1 web element
+        //whenever regular selenium methods are not working, I use js executor
+        //or for scrolling
+        //arguments[0].click() is an alternative for link1.click()
+        js.executeScript("arguments[0].click()", link1);
+        BrowserUtils.wait(2);//wait for demo
     }
 
     @AfterMethod
