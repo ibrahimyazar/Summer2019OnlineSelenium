@@ -1,4 +1,4 @@
-package test.day12;
+package test.day12_Frames_DragAndDrop_Hover;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,8 +33,8 @@ public class FramesPractice {
         //WITHOUT SWITCHING, WE CANNOT SEE INNER HTML DOCUMENT
         // which one to use? id, name, index, webelement?
         //1. id or name  <iframe id="mce_0_ifr" name="some_frame">
-        //2. webelment
-
+        //2. webelment driver.findElement(By.cssSelector("iframe[class='some_frame']"));
+        //3. index [iframe1, iframe2, iframe3...]
         WebElement inputArea = driver.findElement(By.id("tinymce"));
         String expectedText ="Your content goes here.";
         String actualText = inputArea.getText();
@@ -50,7 +50,11 @@ public class FramesPractice {
 
         //to exit from the frame
         driver.switchTo().defaultContent();
-
+//in case of nested frames
+        //we must switch to first frame --> then again to another frame, that is inside
+        // -- html
+        // -- frame #1
+        // ---- frame #2
 
     }
 

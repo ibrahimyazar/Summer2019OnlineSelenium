@@ -1,4 +1,4 @@
-package test.day12;
+package test.day12_Frames_DragAndDrop_Hover;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package test.day10;
+package test.day10_PopUp_fileUploading_SwichWindows;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
