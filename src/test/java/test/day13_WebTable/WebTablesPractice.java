@@ -54,7 +54,7 @@ public class WebTablesPractice {
         Assert.assertEquals(actualColumnNumber, expectedColumnNumber);
         System.out.println(actualColumnNumber);
     }
-    @Test(description = "verify that ")
+    @Test(description = "verify that number of row int second table is equals to 5  ")
     public void test3() {
         driver.findElement(By.linkText("Sortable Data Tables")).click();
         int expectednumberofRow = 5;
