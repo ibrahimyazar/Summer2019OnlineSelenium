@@ -23,6 +23,7 @@ public class Webtable2 {
         driver = BrowserFactory.getDriver("Chrome");
         driver.get("http://practice.cybertekschool.com/");
         driver.manage().window().fullscreen();
+       driver.navigate().refresh();
         driver.findElement(By.linkText("Sortable Data Tables")).click();
         wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("table2")));

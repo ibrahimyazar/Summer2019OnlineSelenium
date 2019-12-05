@@ -18,6 +18,7 @@ public class MyFirstSeleniumScript {
 
         String actualResult = driver.getTitle();
         String expectedResult = "Google";
+
         BrowserUtils.wait(3);
         if (actualResult.equals(expectedResult)){
             System.out.println("Test past");

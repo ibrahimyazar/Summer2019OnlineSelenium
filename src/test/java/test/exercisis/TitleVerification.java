@@ -1,6 +1,8 @@
-package utils;
+package test.exercisis;
 
 import org.openqa.selenium.WebDriver;
+import utils.BrowserFactory;
+import utils.BrowserUtils;
 
 import java.util.Arrays;
 import java.util.List;
