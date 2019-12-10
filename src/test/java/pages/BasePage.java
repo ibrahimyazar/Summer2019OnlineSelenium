@@ -52,7 +52,7 @@ public class BasePage {
      * @return true if loader mask is gone, false if something went wrong
      */
     public boolean waitUntilLoaderMaskDisappear() {
-        WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
+        WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
         try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div[class='loader-mask shown']")));
             return true;
@@ -102,6 +102,10 @@ public class BasePage {
         waitUntilLoaderMaskDisappear();
         BrowserUtils.waitForStaleElement(pageSubTitle);
         return pageSubTitle.getText();
+        /*
+        String pageSubTitle = pageSubTitle.getText();
+        return pageSubTitle;
+        */
     }
 
     public String getUserName() {

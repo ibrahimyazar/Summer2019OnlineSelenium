@@ -17,7 +17,7 @@ public class TestNGPractice {
     }
     @Test  (description = "Verifyinmg title of tyhe practice website")
     public void VerifyTitle(){
-        WebDriver driver = BrowserFactory.getDriver("Chrome");
+        WebDriver driver = BrowserFactory.getDriver("chrome");
         driver.get("https://practice-cybertekschool.herokuapp.com/");
         String ExpectedTitle = "Practice";
         String ActualTitle = driver.getTitle();

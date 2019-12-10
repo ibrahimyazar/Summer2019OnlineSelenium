@@ -22,6 +22,8 @@ public class BrowserFactory {
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
+        }else if (browser.equalsIgnoreCase("safari")){
+          return new SafariDriver();
         }
         return null;
     }

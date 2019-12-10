@@ -43,6 +43,12 @@ Collapse
             driver.get("https://qa1.vytrack.com/");
             driver.findElement(By.id("prependedInput")).sendKeys("storemanager85");
             driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123", Keys.ENTER);
+
+            WebElement loaderMask= null;
+            if(driver.findElements(By.cssSelector("div[class='loader-mask shown']")).size()>0) {
+                loaderMask = driver.findElement(By.cssSelector("div[class='loader-mask shown']"));
+                wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+            }
             WebElement activitiesElement = driver.findElement(By.partialLinkText("Activities"));
             wait.until(ExpectedConditions.visibilityOf(activitiesElement));
             wait.until(ExpectedConditions.elementToBeClickable(activitiesElement));
@@ -52,8 +58,8 @@ Collapse
             wait.until(ExpectedConditions.visibilityOf(calendarEventsElement));
             wait.until(ExpectedConditions.elementToBeClickable(calendarEventsElement));
             calendarEventsElement.click();
-            WebElement loaderMask = driver.findElement(By.cssSelector("div[class='loader-mask shown']"));
-            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+//            WebElement loaderMask = driver.findElement(By.cssSelector("div[class='loader-mask shown']"));
+           wait.until(ExpectedConditions.invisibilityOf(loaderMask));
         }
         @Test(description = "Verify page subtitle")
         public void test1(){
