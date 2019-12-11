@@ -1,10 +1,30 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--everytime we have to write <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >-->
 <suite name = "Smoke Test">
-    <test name = "Smoke Test">
+    <test name = "Smoke Test on QA1">
+<!--        parameter is change the name of the test-->
         <parameter name = "test" value = "smoke_test"></parameter>
-        <parameter name = "env_url" value = "https://qa3.vytrack.com/"></parameter>
+        <parameter name = "env_url" value = "https://qa1.vytrack.com/"></parameter>
         <classes>
             <class name = "Vy_Track.SmokeTest"/>
         </classes>
+    </test>
+
+    <test name="Smoke Test on QA2">
+        <parameter name="test" value="smoke_test"></parameter>
+        <parameter name="env-url" value="https://qa2.vytrack.com/"></parameter>
+        <classes>
+            <class name="Vy_Track.SmokeTest"/>
+        </classes>
+    </test>
+
+    <test name="Smoke Test on QA3">
+        <parameter name="test" value="smoke_test"></parameter>
+        <parameter name="env-url" value="https://qa3.vytrack.com/"></parameter>
+        <classes>
+            <class name="Vy_Track.SmokeTest"/>
+        </classes>
+
+
     </test>
 </suite>

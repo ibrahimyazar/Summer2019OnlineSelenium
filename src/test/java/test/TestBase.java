@@ -39,11 +39,13 @@ public abstract class TestBase {
     protected static ExtentTest extentTest;                  // this is an object / write the report
 
     //parameteres name  = "test" value = "regrestion
-    @Parameters("test")
     @BeforeTest
-    public void beforeTest(@Optional String test){   // this report you doing just one and use forever
+    @Parameters({"test", "env_url"})
+    public void beforeTest(@Optional String test, @Optional String env_url){   // this report you doing just one and use forever
         // location of report it is going to next to tartget folder, test-output folder
-        String reportName = "report";
+        //location of report
+        //it's gonna be next to target folder, test-output folder
+        String reportName = "report";  // day 25 video 1:30
         if (test != null) {
             reportName = test;
         }
@@ -53,7 +55,12 @@ public abstract class TestBase {
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
         extentHtmlReporter.config().setReportName("Vytrack Test Result");
-        extentReports.setSystemInfo("Enviroment", "QA1");
+        //system information
+        String env = ConfigurationReader.getProperty("url");   // for xml
+        if (env_url != null) {
+            env = env_url;
+        }
+        extentReports.setSystemInfo("Enviroment", env);  // we changed day 25 video 2:10
         extentReports.setSystemInfo("Browser", ConfigurationReader.getProperty("browser"));
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
     }
@@ -78,6 +85,7 @@ public abstract class TestBase {
         //  Driver.get().get(ConfigurationReader.getProperty("url"));
     }
 
+    //ITestResult class describes the result of a test. (in TestNG)
     @AfterMethod
     public void teardown(ITestResult result){  //  ITestResult coming from testNG and
 

@@ -1,12 +1,35 @@
 package test.Day26AppachiPOI;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import pages.LoginPage;
 import test.TestBase;
+import utils.Driver;
 import utils.ExcelUtil;
 
 import java.util.Map;
 
 public class LoginTestsWithExcel extends TestBase {
+
+    @Test(dataProvider = "credentials", description = "login with different credentials")
+    public void loginTest(String username, String password, String firstname, String lastname, String result){
+
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(username, password);
+
+        if(Driver.get().getTitle().equalsIgnoreCase("Dashboard")){
+            System.out.println("Test passed");
+        }else{
+            System.out.println("Test is not passed ");
+        }
+
+       // Assert.assertEquals(Driver.get().getTitle(), "Dashboard");
+    }
+
+
+
+
 
     //
     //
@@ -43,7 +66,7 @@ public class LoginTestsWithExcel extends TestBase {
 //        }
 
 
-    }
+ //   }
 
 
 }
