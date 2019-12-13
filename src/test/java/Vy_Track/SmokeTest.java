@@ -17,10 +17,12 @@ public class SmokeTest extends TestBase {
 
         loginPage.navigateTo(moduleName, subModuleName);
 
+        // //wait for page subtitle
         loginPage.waitUntilLoaderMaskDisappear();
+        loginPage.waitForPageSubTitle(pageSubTitle);
 
         Assert.assertEquals(loginPage.getPageSubTitle(), pageSubTitle);
-        System.out.println(pageSubTitle);
+        System.out.println("Page Title is: " + pageSubTitle);
 
         extentTest.pass("Verified that page subtitle '"+pageSubTitle+"' is displayed");
 

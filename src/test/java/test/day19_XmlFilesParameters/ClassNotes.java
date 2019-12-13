@@ -1,4 +1,4 @@
-package test.day25_XmlFilesParameters;
+package test.day19_XmlFilesParameters;
 
 public class ClassNotes {
 

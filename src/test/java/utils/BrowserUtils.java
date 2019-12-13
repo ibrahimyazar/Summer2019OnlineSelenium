@@ -2,21 +2,22 @@ package utils;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
+import java.util.function.Function;
 
 public class BrowserUtils {
 
     //It will be used to pause our test execution
     //just provide number of seconds as a parameter
-    public static void wait(int seconds){
+    public static void wait(int seconds) {
         try {
-            Thread.sleep(1000*seconds);
+            Thread.sleep(1000 * seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -81,7 +82,9 @@ public class BrowserUtils {
 
     /*
      * takes screenshot
-     * @param name
+     * whenever you call this method
+     * it takes screenshot and returns location of the screenshot
+     * @param name of test or whatever your like
      * take a name of a test and returns a path to screenshot takes
      */
     public static String getScreenshot(String name) {
@@ -107,9 +110,66 @@ public class BrowserUtils {
         return target;
     }
 
-    public static void main(String[] args) {
-        String target = System.getProperty("user.dir");
+    // day 26 added
+    /**
+     * Wait 15 seconds with polling interval of 200 milliseconds then click
+     *day 26 addeddddd
+     * @param webElement of element
+     */
+    public static void clickWithWait(WebElement webElement) {  // day 26 ideo 15:00  fluen twait is a
+        Wait wait = new FluentWait<>(Driver.get())
+                .withTimeout(Duration.ofSeconds(15))
+                .pollingEvery(Duration.ofMillis(200))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotVisibleException.class)
+                .ignoring(ElementClickInterceptedException.class)
+                .ignoring(StaleElementReferenceException.class)
+                .ignoring(WebDriverException.class);
+        WebElement element = (WebElement) wait.until((Function<WebDriver, WebElement>) driver -> webElement);
+        try {  // all all up conditions are met click and than if click fail for some reson it will wait
+            element.click();
+        } catch (WebDriverException e) {
+            System.out.println(e.getMessage());
+            try {
+                Thread.sleep(1000);  // one second and recover that failer and than click again
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            element.click();   // click again
+        }
+    }
+
+    //  // day 26 added  video 16:16
+    /**
+     * waits for backgrounds processes on the browser to complete
+     *day 26 addeddddd
+     * @param timeOutInSeconds
+     */
+    public static void waitForPageToLoad(long timeOutInSeconds) {  // it is using Java scrip excecuter
+        ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.get(), timeOutInSeconds);
+            wait.until(expectation);
+        } catch (Throwable error) {
+            error.printStackTrace();
+        }
+    }
+
+    // day 26 added
+    /**
+     * Wait for proper page title
+     *day 26 addeddddd
+     * @param pageTitle
+     */
+    public static void waitForPageTitle(String pageTitle) {
+        WebDriverWait wait = new WebDriverWait(Driver.get(), 10);
+        wait.until(ExpectedConditions.titleIs(pageTitle));
     }
 }
+
+//    public static void main(String[] args) {
+//        String target = System.getProperty("user.dir");
+//    }
+//}
 
 
