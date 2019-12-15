@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-public class WaitsPractice {
+public class  WaitsPractice {
 
     private WebDriver driver;
 
