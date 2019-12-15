@@ -49,6 +49,8 @@ public class TestCase3 {
         BrowserUtils.wait(2);
     }
 
+    // jfsd
+
 
     @Test(description = "verify that")
     public void Testcase3(){
@@ -105,7 +107,7 @@ public class TestCase3 {
         Time1.click();
         WebElement Starttime = driver.findElement(By.xpath("//li[contains(text(), '10:00 PM')]"));
         Starttime.click();
-       // String StartTimetext = Starttime.getText();
+        String StartTimetext = Starttime.getAttribute("value");
         //System.out.println(StartTimetext);
 
         String ExpectedTime = "11:00 PM";
