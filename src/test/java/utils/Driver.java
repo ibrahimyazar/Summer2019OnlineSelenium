@@ -22,10 +22,11 @@ public class Driver {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     //to configure chrome browser for tests
-                    ChromeOptions chromeOptions = new ChromeOptions();  // day 12/12/2019 eklendi video 16:50
+                   // ChromeOptions chromeOptions = new ChromeOptions();  // day 12/12/2019 eklendi video 16:50
                     //to run tests without interface, set to true
-                    chromeOptions.setHeadless(true);
-                    driver = new ChromeDriver(chromeOptions);
+//                    chromeOptions.setHeadless(true);
+                //   driver = new ChromeDriver(chromeOptions);
+                    driver = new ChromeDriver();
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();

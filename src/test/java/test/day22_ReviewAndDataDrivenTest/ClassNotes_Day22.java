@@ -1,4 +1,4 @@
-package test.day22_Review;
+package test.day22_ReviewAndDataDrivenTest;
 
 public class ClassNotes_Day22 {
 
