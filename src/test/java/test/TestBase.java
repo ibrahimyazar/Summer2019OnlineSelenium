@@ -3,15 +3,12 @@ package test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import org.testng.ITest;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.BrowserUtils;
 import utils.ConfigurationReader;
 import utils.Driver;
 
-import javax.naming.ldap.ExtendedRequest;
 import java.io.IOException;
 
 /// test base a supper class all the test classes

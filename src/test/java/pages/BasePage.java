@@ -36,7 +36,7 @@ public class BasePage {
     @FindBy(linkText = "My User")
     public WebElement myUser;
 
-    public BasePage() {
+    public BasePage() {  // in selenium when we create POM we have to add a constructor that call the pagefactory class
         //this method requires to provide webdriver object for @FindBy
         //and page class
         //this means this page class
