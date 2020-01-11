@@ -14,6 +14,7 @@ public class MyFirstSeleniumScript {
         // now open google.com
         // .get() method allows to open some website
         driver .get("http://google.com");
+        driver.navigate().refresh();
 
         String actualResult = driver.getTitle();
         String expectedResult = "Google";
